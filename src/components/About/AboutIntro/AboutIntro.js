@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle2, Award, Users } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import styles from './AboutIntro.module.css';
 
 const highlights = [
@@ -44,7 +44,7 @@ export default function AboutIntro() {
           </ul>
         </motion.div>
 
-        {/* Right: Visual card */}
+        {/* Right: Visual image */}
         <motion.div
           className={styles.visual}
           initial={{ opacity: 0, x: 40 }}
@@ -52,33 +52,13 @@ export default function AboutIntro() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          {/* Main card */}
-          <div className={styles.mainCard}>
-            <div className={styles.cardBadge}>
-              <Award size={20} className={styles.cardBadgeIcon} />
-              <span>10+ Years of Excellence</span>
-            </div>
-            <div className={styles.cardTitle}>Trusted by Businesses Worldwide</div>
-            <p className={styles.cardText}>
-              We believe technology can transform industries and revolutionize how businesses grow and operate.
-            </p>
-            <div className={styles.cardFooter}>
-              <div className={styles.avatarGroup}>
-                {['R', 'A', 'S', 'M'].map((initial, i) => (
-                  <div
-                    key={i}
-                    className={styles.avatar}
-                    style={{ '--i': i }}
-                  >
-                    {initial}
-                  </div>
-                ))}
-              </div>
-              <div className={styles.cardStat}>
-                <Users size={14} />
-                <span>50+ Team Members</span>
-              </div>
-            </div>
+          <div className={styles.imageWrapper}>
+            <img 
+              src="/images/about/about_team_1779099787291.png" 
+              alt="Venner Infotech Team" 
+              className={styles.image}
+            />
+            <div className={styles.imageOverlay}></div>
           </div>
 
           {/* CEO Quote card */}

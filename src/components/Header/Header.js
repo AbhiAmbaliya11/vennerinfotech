@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -18,8 +19,15 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Determine the active link name based on the current path
+  const activeLink = NAV_LINKS.find((link) => {
+    const linkPath = link.href.split("#")[0]; // Strip hash (e.g. "/#services" -> "/")
+    if (linkPath === "/") return pathname === "/";
+    return pathname.startsWith(linkPath);
+  })?.name ?? "";
 
   // Track scroll to apply solid bg
   useEffect(() => {
@@ -47,7 +55,7 @@ export default function Header() {
           transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
         >
           {/* Logo */}
-          <Link href="/" className={styles.logoContainer} onClick={() => setActiveLink("Home")}>
+          <Link href="/" className={styles.logoContainer}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
@@ -70,7 +78,6 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 className={styles.navLink}
-                onMouseEnter={() => setActiveLink(link.name)}
               >
                 {link.name}
                 {activeLink === link.name && (
@@ -123,10 +130,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     className={styles.mobileNavLink}
-                    onClick={() => {
-                      setActiveLink(link.name);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}
                   </Link>
