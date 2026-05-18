@@ -1,8 +1,8 @@
 import Header from "@/components/Header/Header";
-import Hero from "@/components/services/software-development/Hero";
-import Workflow from "@/components/services/software-development/Workflow";
-import TechStack from "@/components/services/software-development/TechStack";
-import Architecture from "@/components/services/software-development/Architecture";
+import Hero from "@/components/Services/software-development/Hero";
+import Workflow from "@/components/Services/software-development/Workflow";
+import TechStack from "@/components/Services/software-development/TechStack";
+import Architecture from "@/components/Services/software-development/Architecture";
 import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
 import styles from "./page.module.css";
 

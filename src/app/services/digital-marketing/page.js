@@ -1,6 +1,6 @@
 import Header from "@/components/Header/Header";
-import Hero from "@/components/services/digital-marketing/Hero";
-import Dashboard from "@/components/services/digital-marketing/Dashboard";
+import Hero from "@/components/Services/digital-marketing/Hero";
+import Dashboard from "@/components/Services/digital-marketing/Dashboard";
 import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
 import styles from "./page.module.css";
 

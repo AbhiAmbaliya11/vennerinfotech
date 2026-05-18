@@ -1,6 +1,6 @@
 import Header from "@/components/Header/Header";
-import Hero from "@/components/services/web-development/Hero";
-import Showcase from "@/components/services/web-development/Showcase";
+import Hero from "@/components/Services/web-development/Hero";
+import Showcase from "@/components/Services/web-development/Showcase";
 import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
 import styles from "./page.module.css";
 

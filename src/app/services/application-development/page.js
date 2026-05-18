@@ -1,6 +1,6 @@
 import Header from "@/components/Header/Header";
-import Hero from "@/components/services/application-development/Hero";
-import ProcessFlow from "@/components/services/application-development/ProcessFlow";
+import Hero from "@/components/Services/application-development/Hero";
+import ProcessFlow from "@/components/Services/application-development/ProcessFlow";
 import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
 import styles from "./page.module.css";
 
