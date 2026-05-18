@@ -1,0 +1,177 @@
+.industriesSection {
+  padding: 8rem 2rem;
+  background-color: #fffaf5; /* Soft warm beige background */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Perspective Grid Background */
+.bgGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(249, 115, 22, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+  transform: perspective(1000px) rotateX(60deg) scale(2);
+  transform-origin: top center;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Header */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Tighter gap to match screenshot */
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card Styling - Flat, Clean, Crisp */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px; /* Sharper corners like screenshot */
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); /* Extremely subtle shadow */
+  border: 1px solid rgba(0, 0, 0, 0.03); /* Faint border */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 15px 30px rgba(249, 115, 22, 0.05); /* Soft orange shadow on hover */
+  border-color: rgba(249, 115, 22, 0.1);
+}
+
+.cornerGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Top Section (Statistics) */
+.topSection {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end; /* Aligns text to right */
+}
+
+.statContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.statNumber {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  display: inline-block; /* Required for framer motion scaling */
+}
+
+.statSubtitle {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Bottom Section (Industry details) */
+.bottomSection {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
+  margin-left: 2.25rem; /* Align text under title, not under icon */
+}

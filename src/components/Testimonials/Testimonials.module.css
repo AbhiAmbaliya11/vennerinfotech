@@ -1,0 +1,187 @@
+.testimonialSection {
+  padding: 8rem 0; /* Horizontal padding removed to allow carousel to bleed off screen */
+  background-color: #040914; /* Deep navy almost black */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern & Glow */
+.patternBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 0 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+/* Draggable Carousel */
+.carouselWrapper {
+  width: 100%;
+  overflow-x: hidden; /* Hide the scrollbar but allow Framer Motion to drag */
+  padding: 2rem 0;
+  cursor: grab;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  width: max-content; /* Ensure track is as wide as its children */
+}
+
+/* Testimonial Card */
+.testimonialCard {
+  position: relative;
+  width: 350px;
+  min-width: 350px; /* Force width so they don't shrink */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .testimonialCard {
+    width: 450px;
+    min-width: 450px;
+  }
+}
+
+.testimonialCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Faint large quote icon in background */
+.quoteBg {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: 0;
+}
+
+.ratingBox {
+  display: flex;
+  gap: 0.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.clientInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.clientText h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.clientText p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}

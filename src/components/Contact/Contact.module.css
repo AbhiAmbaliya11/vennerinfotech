@@ -1,0 +1,144 @@
+.contactSection {
+  padding: 8rem 2rem;
+  background-color: #fffaf5; /* Soft warm off-white for contrast against the dark sections */
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6rem;
+  }
+}
+
+/* Left Content Area */
+.leftContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: var(--foreground);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 450px;
+  line-height: 1.6;
+}
+
+.arrowContainer {
+  margin-top: 2rem;
+  display: none; /* Hide on mobile to save space */
+}
+
+@media (min-width: 1024px) {
+  .arrowContainer {
+    display: block;
+    margin-left: 2rem;
+  }
+}
+
+.arrowSvg {
+  overflow: visible;
+}
+
+/* Right Content Area (Cards) */
+.rightContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px; /* Constrain width of cards */
+}
+
+/* Individual Contact Card */
+.contactCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  text-decoration: none;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contactCard:hover {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.1);
+}
+
+.iconBox {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cardLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cardValue {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Faint accent glow on hover */
+.hoverGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contactCard:hover .hoverGlow {
+  opacity: 1;
+}
