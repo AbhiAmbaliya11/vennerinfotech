@@ -22,7 +22,7 @@ const NAV_LINKS = [
       { name: "Digital Marketing", href: "/services/digital-marketing", description: "Data-driven marketing strategies", icon: TrendingUp, color: "#10b981" },
     ]
   },
-  { name: "Industries", href: "/#industries" },
+  { name: "Industries", href: "/industries" },
   { name: "Contact", href: "/contact" },
 ];
 
