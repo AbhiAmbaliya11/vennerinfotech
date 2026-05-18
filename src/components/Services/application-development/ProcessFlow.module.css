@@ -1,0 +1,92 @@
+.section {
+  padding: 6rem 2rem;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.flowContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+}
+
+.flowContainer::before {
+  content: '';
+  position: absolute;
+  top: 45px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .flowContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .flowContainer::before {
+    display: none;
+  }
+}
+
+.stepCard {
+  background: white;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 250px;
+}
+
+.iconBox {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border: 2px solid #f97316;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f97316;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.15);
+  transition: transform 0.3s;
+}
+
+.stepCard:hover .iconBox {
+  transform: scale(1.1);
+  background: #f97316;
+  color: #fff;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.stepDesc {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

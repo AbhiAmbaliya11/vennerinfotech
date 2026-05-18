@@ -102,7 +102,7 @@ export default function FAQ() {
             <MessageCircleQuestion size={24} className={styles.hintIcon} />
             <div>
               <p>Have more questions?</p>
-              <a href="#contact" className={styles.hintLink}>Contact our team today →</a>
+              <a href="/contact" className={styles.hintLink}>Contact our team today →</a>
             </div>
           </motion.div>
         </div>

@@ -1,0 +1,40 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+.contentWrapper {
+  padding-top: 80px; /* Account for header */
+}
+
+.formSection {
+  padding: 4rem 2rem 8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.formContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .formContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .cardsColumn {
+    order: 2;
+  }
+  
+  .formColumn {
+    order: 1;
+  }
+}

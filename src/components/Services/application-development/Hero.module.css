@@ -1,0 +1,255 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 2rem 4rem;
+  overflow: hidden;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.gradientBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1), transparent 50%),
+              radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08), transparent 50%);
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f97316;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  .pill { margin: 0 auto 2rem; }
+}
+
+.title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+@media (max-width: 992px) {
+  .description { margin: 0 auto 2.5rem; }
+}
+
+.btnGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 992px) {
+  .btnGroup { justify-content: center; }
+}
+
+.btnPrimary {
+  padding: 1rem 2rem;
+  background: #f97316;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+}
+
+.btnSecondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: white;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.btnSecondary:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+/* Mockup Styles */
+.visualContent {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.mockupWrapper {
+  position: relative;
+}
+
+.phoneBody {
+  width: 320px;
+  height: 650px;
+  background: #fff;
+  border-radius: 40px;
+  border: 12px solid #0f172a;
+  box-shadow: 20px 30px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.phoneBody::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 25px;
+  background: #0f172a;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  z-index: 10;
+}
+
+.screen {
+  padding: 2rem 1.5rem;
+  background: #f1f5f9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.userAvatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.skeletonLine {
+  width: 100px;
+  height: 12px;
+  background: #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.skeletonLineShort {
+  width: 60px;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 5px;
+}
+
+.appCard {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.appGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.gridItem {
+  height: 100px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+/* Floating Elements */
+.floatingElement1 {
+  position: absolute;
+  top: 10%;
+  right: -20%;
+  z-index: 20;
+}
+
+.floatingElement2 {
+  position: absolute;
+  bottom: 15%;
+  left: -30%;
+  z-index: 20;
+}
+
+.notification {
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0f172a;
+}
