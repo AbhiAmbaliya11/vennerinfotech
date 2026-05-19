@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, ChevronDown, Terminal, Smartphone, Layout, TrendingUp, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Terminal, Smartphone, Layout, TrendingUp, Sparkles, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logoImage from "@/images/vn-logo.png";
@@ -23,6 +23,7 @@ const NAV_LINKS = [
     ]
   },
   { name: "Industries", href: "/industries" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -162,11 +163,17 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <button className={styles.ctaButton}>
-            Get a Quote
-            <ArrowRight size={18} />
-          </button>
+          {/* CTA Buttons */}
+          <div className={styles.ctaGroup}>
+            <a href="tel:+918980317457" className={styles.callBtn}>
+              <Phone size={16} />
+              Call Now
+            </a>
+            <a href="/contact" className={styles.contactBtn}>
+              <Mail size={16} />
+              Contact Us
+            </a>
+          </div>
 
           {/* Mobile Toggle */}
           <button
@@ -244,15 +251,22 @@ export default function Header() {
                   )}
                 </motion.div>
               ))}
-              <motion.button
-                className={styles.mobileCta}
+              <motion.div
+                className={styles.mobileCtaGroup}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
               >
-                Get a Quote
-              </motion.button>
+                <a href="tel:+918980317457" className={styles.mobileCallBtn}>
+                  <Phone size={18} />
+                  Call Now
+                </a>
+                <a href="/contact" className={styles.mobileContactBtn} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Mail size={18} />
+                  Contact Us
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}
