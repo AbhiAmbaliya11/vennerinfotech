@@ -8,28 +8,28 @@ import { Lightbulb, Code2, TestTube2, Rocket, Wrench } from "lucide-react";
 const steps = [
   {
     icon: Lightbulb,
-    title: "Discovery & Planning",
-    desc: "We analyze your requirements and architect a scalable solution.",
+    title: "Define Scope",
+    desc: "We analyze your requirements, identify challenges, and define the scope of the project.",
   },
   {
     icon: Code2,
-    title: "Agile Development",
-    desc: "Iterative coding with regular feedback loops and transparent progress.",
+    title: "Design",
+    desc: "Creating intuitive UI/UX and solid architecture to ensure a scalable and secure application.",
   },
   {
     icon: TestTube2,
-    title: "Rigorous Testing",
-    desc: "Automated and manual testing to ensure zero defects.",
-  },
-  {
-    icon: Rocket,
-    title: "Deployment",
-    desc: "Seamless CI/CD pipelines for smooth and safe releases.",
+    title: "Development",
+    desc: "Writing clean, efficient, and robust code following agile methodologies and best practices.",
   },
   {
     icon: Wrench,
-    title: "Maintenance",
-    desc: "24/7 monitoring and proactive performance optimization.",
+    title: "Testing",
+    desc: "Rigorous quality assurance, including automated and manual testing for zero defects.",
+  },
+  {
+    icon: Rocket,
+    title: "Execute",
+    desc: "Smooth deployment and ongoing maintenance to keep your software running flawlessly.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function Workflow() {
           transition={{ duration: 0.6 }}
           className={styles.header}
         >
-          <h2 className={styles.title}>Our Software <span className={styles.highlight}>Engineering Process</span></h2>
+          <h2 className={styles.title}>Fundamental Steps for <span className={styles.highlight}>Mastering Software Development</span></h2>
           <p className={styles.subtitle}>
             A battle-tested methodology designed to deliver high-quality software on time and within budget.
           </p>

@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
 import { ArrowRight, Terminal } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -22,7 +24,7 @@ export default function Hero() {
             className={styles.badge}
           >
             <Terminal size={16} className={styles.badgeIcon} />
-            <span>Enterprise Software Solutions</span>
+            <span>Top Software Company in Surat</span>
           </motion.div>
 
           <motion.h1
@@ -31,8 +33,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className={styles.title}
           >
-            Building Scalable <br />
-            <span className={styles.gradientText}>Digital Infrastructure</span>
+            Best Custom <br />
+            <span className={styles.gradientText}>Software Development</span> <br />
+            Company in Surat
           </motion.h1>
 
           <motion.p
@@ -41,9 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className={styles.description}
           >
-            We engineer high-performance software systems designed for reliability, 
-            security, and unprecedented scale. Transform your business operations 
-            with custom enterprise solutions.
+            Looking for custom software development company in surat? We build scalable, secure, and custom software tailored to your business needs.
           </motion.p>
 
           <motion.div
@@ -52,13 +53,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className={styles.ctaGroup}
           >
-            <button className={styles.primaryButton}>
+            <Link href="/contact" className={styles.primaryButton}>
               Start a Project
               <ArrowRight size={20} />
-            </button>
-            <button className={styles.secondaryButton}>
-              Explore Capabilities
-            </button>
+            </Link>
+            <Link href="#services" className={styles.secondaryButton}>
+              Explore Services
+            </Link>
           </motion.div>
         </div>
 
@@ -68,33 +69,16 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.4 }}
           className={styles.visualContainer}
         >
-          <div className={styles.codeMockup}>
-            <div className={styles.mockupHeader}>
-              <div className={styles.dots}>
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className={styles.mockupTitle}>system_core.ts</div>
-            </div>
-            <div className={styles.mockupBody}>
-              <pre>
-                <code>
-                  <span className={styles.keyword}>import</span> {"{"} Scale, Secure {"}"} <span className={styles.keyword}>from</span> <span className={styles.string}>'@venner/enterprise'</span>;{"\n"}
-                  {"\n"}
-                  <span className={styles.keyword}>class</span> <span className={styles.class}>Architecture</span> {"{"}{"\n"}
-                  {"  "}<span className={styles.keyword}>private</span> capacity: <span className={styles.type}>number</span> = Infinity;{"\n"}
-                  {"\n"}
-                  {"  "}@Scale() {"\n"}
-                  {"  "}@Secure() {"\n"}
-                  {"  "}<span className={styles.keyword}>public async</span> <span className={styles.method}>deploy</span>(system: System) {"{"}{"\n"}
-                  {"    "}<span className={styles.keyword}>await</span> system.<span className={styles.method}>initialize</span>();{"\n"}
-                  {"    "}<span className={styles.keyword}>return</span> {"{"} status: <span className={styles.string}>'Operational'</span>, uptime: <span className={styles.string}>'99.99%'</span> {"}"};{"\n"}
-                  {"  "}{"}"}{"\n"}
-                  {"}"}
-                </code>
-              </pre>
-            </div>
+          <div className={styles.imageWrapper}>
+            <Image 
+              src="/images/services/software_dev_team.png" 
+              alt="Professional software engineering team" 
+              width={600} 
+              height={400} 
+              className={styles.heroImage}
+              priority
+            />
+            <div className={styles.imageOverlay}></div>
           </div>
         </motion.div>
       </div>

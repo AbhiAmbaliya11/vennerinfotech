@@ -1,7 +1,8 @@
-import Header from "@/components/Header/Header";
 import Hero from "@/components/Services/application-development/Hero";
+import AppServices from "@/components/Services/application-development/AppServices";
+import TechExpertise from "@/components/Services/application-development/TechExpertise";
 import ProcessFlow from "@/components/Services/application-development/ProcessFlow";
-import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
+import CoreValues from "@/components/Services/application-development/CoreValues";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -12,11 +13,11 @@ export const metadata = {
 export default function ApplicationDevelopmentPage() {
   return (
     <main className={styles.main}>
-      <Header />
       <Hero />
+      <AppServices />
+      <TechExpertise />
       <ProcessFlow />
-      {/* Additional app dev sections can go here */}
-      <Footer />
+      <CoreValues />
     </main>
   );
 }

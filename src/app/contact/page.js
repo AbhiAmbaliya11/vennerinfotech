@@ -1,5 +1,5 @@
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+
+
 import ContactHero from "@/components/contact-page/ContactHero";
 import InteractiveForm from "@/components/contact-page/InteractiveForm";
 import LocationCards from "@/components/contact-page/LocationCards";
@@ -13,7 +13,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <main className={styles.main}>
-      <Header />
+
       
       <div className={styles.contentWrapper}>
         <ContactHero />
@@ -30,7 +30,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <Footer />
+
     </main>
   );
 }

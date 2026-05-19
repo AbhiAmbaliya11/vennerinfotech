@@ -1,7 +1,7 @@
 .section {
   padding: 6rem 2rem;
-  background-color: #0f1115;
-  color: white;
+  background-color: #f8fafc;
+  color: #0f1115;
 }
 
 .container {
@@ -21,7 +21,7 @@
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: #475569;
   font-size: 1.1rem;
 }
 
@@ -32,24 +32,27 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 2rem;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.04);
+  background: #ffffff;
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .categoryTitle {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: #e2e8f0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #0f1115;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding-bottom: 0.75rem;
 }
 
@@ -62,7 +65,7 @@
 .itemTag {
   padding: 0.4rem 0.8rem;
   background: rgba(59, 130, 246, 0.1);
-  color: #93c5fd;
+  color: #2563eb;
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;

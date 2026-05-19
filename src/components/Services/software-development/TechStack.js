@@ -5,10 +5,8 @@ import styles from "./TechStack.module.css";
 import Image from "next/image";
 
 const technologies = [
-  { category: "Frontend", items: ["React", "Next.js", "Vue", "Angular", "TypeScript"] },
-  { category: "Backend", items: ["Node.js", "Python", "Java", "Go", "Ruby on Rails"] },
-  { category: "Database", items: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"] },
-  { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"] },
+  { category: "Frontend", items: ["HTML", "CSS", "JS", "Next.js"] },
+  { category: "Backend", items: ["PHP", "Laravel", "CodeIgnitor"] }
 ];
 
 export default function TechStack() {

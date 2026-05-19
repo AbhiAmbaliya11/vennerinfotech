@@ -1,7 +1,10 @@
-import Header from "@/components/Header/Header";
+
 import Hero from "@/components/Services/web-development/Hero";
 import Showcase from "@/components/Services/web-development/Showcase";
-import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
+import WebServices from "@/components/Services/web-development/WebServices";
+import TechExpertise from "@/components/Services/web-development/TechExpertise";
+import CoreValues from "@/components/Services/web-development/CoreValues";
+
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -12,11 +15,11 @@ export const metadata = {
 export default function WebDevelopmentPage() {
   return (
     <main className={styles.main}>
-      <Header />
       <Hero />
       <Showcase />
-      {/* Additional web dev sections can go here */}
-      <Footer />
+      <WebServices />
+      <TechExpertise />
+      <CoreValues />
     </main>
   );
 }

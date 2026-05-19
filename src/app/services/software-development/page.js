@@ -1,9 +1,10 @@
-import Header from "@/components/Header/Header";
+
 import Hero from "@/components/Services/software-development/Hero";
+import Services from "@/components/Services/software-development/Services";
 import Workflow from "@/components/Services/software-development/Workflow";
+import WhyChooseUs from "@/components/Services/software-development/WhyChooseUs";
 import TechStack from "@/components/Services/software-development/TechStack";
-import Architecture from "@/components/Services/software-development/Architecture";
-import Footer from "@/components/Footer/Footer"; // Assuming Footer exists
+
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -14,12 +15,13 @@ export const metadata = {
 export default function SoftwareDevelopmentPage() {
   return (
     <main className={styles.main}>
-      <Header />
+
       <Hero />
+      <Services />
       <Workflow />
-      <Architecture />
+      <WhyChooseUs />
       <TechStack />
-      <Footer />
+
     </main>
   );
 }
