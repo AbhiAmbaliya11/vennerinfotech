@@ -24,6 +24,7 @@ const NAV_LINKS = [
   },
   { name: "Industries", href: "/industries" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
