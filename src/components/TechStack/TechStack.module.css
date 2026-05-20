@@ -143,3 +143,11 @@
   font-weight: 700;
   color: var(--foreground);
 }
+
+.techLogo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+

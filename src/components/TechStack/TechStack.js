@@ -1,31 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  ShoppingBag, ShoppingCart, 
-  Terminal, Code2, Database, FileCode2, LayoutTemplate, Flame,
-  Palette, PenTool, Image as ImageIcon, Brush, Video 
-} from "lucide-react";
 import styles from "./TechStack.module.css";
 
-// Two rows of technologies
+// Two rows of technologies with original SVG logos
 const row1 = [
-  { name: "Shopify", icon: ShoppingBag, color: "#95bf47" },
-  { name: "Laravel", icon: Code2, color: "#ff2d20" },
-  { name: "Figma", icon: Palette, color: "#f24e1e" },
-  { name: "Magento", icon: ShoppingCart, color: "#ee672f" },
-  { name: "CapCut", icon: Video, color: "#000000" },
-  { name: "Canva", icon: Brush, color: "#00c4cc" },
-  { name: "Next.js", icon: Terminal, color: "#000000" },
+  { name: "Shopify", logo: "/images/logos/shopify.svg", color: "#95bf47" },
+  { name: "Laravel", logo: "/images/logos/laravel.svg", color: "#ff2d20" },
+  { name: "Figma", logo: "/images/logos/figma.svg", color: "#f24e1e" },
+  { name: "Magento", logo: "/images/logos/magento.svg", color: "#ee672f" },
+  { name: "CapCut", logo: "/images/logos/capcut.svg", color: "#000000" },
+  { name: "Canva", logo: "/images/logos/canva.svg", color: "#00c4cc" },
+  { name: "Next.js", logo: "/images/logos/nextjs.svg", color: "#000000" },
 ];
 
 const row2 = [
-  { name: "WordPress", icon: LayoutTemplate, color: "#21759b" },
-  { name: "CodeIgniter", icon: Flame, color: "#ee4323" },
-  { name: "PHP", icon: FileCode2, color: "#777bb4" },
-  { name: "Illustrator", icon: PenTool, color: "#ff9a00" },
-  { name: "CorelDraw", icon: ImageIcon, color: "#377d33" },
-  { name: "Photoshop", icon: Palette, color: "#31a8ff" },
+  { name: "WordPress", logo: "/images/logos/wordpress.svg", color: "#21759b" },
+  { name: "CodeIgniter", logo: "/images/logos/codeigniter.svg", color: "#ee4323" },
+  { name: "PHP", logo: "/images/logos/php.svg", color: "#777bb4" },
+  { name: "Illustrator", logo: "/images/logos/illustrator.svg", color: "#ff9a00" },
+  { name: "CorelDraw", logo: "/images/logos/coreldraw.svg", color: "#377d33" },
+  { name: "Photoshop", logo: "/images/logos/photoshop.svg", color: "#31a8ff" },
 ];
 
 // Reusable Marquee Track Component
@@ -37,14 +32,17 @@ const MarqueeTrack = ({ items, reverse = false }) => {
     <div className={styles.marqueeWrapper}>
       <div className={`${styles.marqueeTrack} ${reverse ? styles.reverse : ""}`}>
         {duplicatedItems.map((tech, index) => {
-          const Icon = tech.icon;
           return (
             <div key={`${tech.name}-${index}`} className={styles.pillCard}>
               <div 
                 className={styles.iconCircle} 
-                style={{ background: `${tech.color}15`, color: tech.color }}
+                style={{ background: `${tech.color}15` }}
               >
-                <Icon size={20} strokeWidth={2.5} />
+                <img 
+                  src={tech.logo} 
+                  alt={`${tech.name} logo`} 
+                  className={styles.techLogo}
+                />
               </div>
               <span className={styles.techName}>{tech.name}</span>
             </div>
