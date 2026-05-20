@@ -21,6 +21,18 @@ export const metadata = {
   authors: [{ name: "Venner Infotech" }],
   creator: "Venner Infotech",
   publisher: "Venner Infotech",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "icon", url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "Venner Infotech | Premium IT Solutions & Services",
     description: "Cutting-edge IT solutions, software development, and digital transformation services.",
