@@ -143,6 +143,7 @@
 .featuredImg {
   min-height: 260px; display: flex;
   align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
 }
 
 .featuredImgIcon { font-size: 5rem; opacity: 0.4; }

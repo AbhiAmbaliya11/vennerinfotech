@@ -1,17 +1,16 @@
-import { blogPosts } from "@/data/blogPosts";
+import { getBlogBySlug, getRelatedBlogs } from "@/lib/blogData";
 import { notFound } from "next/navigation";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Tag, User, ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { renderMarkdown } from "@/lib/renderMarkdown";
 import styles from "./BlogPost.module.css";
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await getBlogBySlug(slug);
   if (!post) return {};
   return {
     title: `${post.title} | Venner Infotech Blog`,
@@ -28,12 +27,10 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await getBlogBySlug(slug);
   if (!post) notFound();
 
-  const related = blogPosts
-    .filter((p) => p.slug !== post.slug && p.category === post.category)
-    .slice(0, 3);
+  const related = await getRelatedBlogs(post.category, post.slug);
 
   return (
     <>
@@ -57,6 +54,16 @@ export default async function BlogPostPage({ params }) {
 
       {/* ── HERO ── */}
       <section className={styles.hero}>
+        {post.image && (
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            priority
+            style={{ objectFit: "cover", zIndex: 0, opacity: 0.35 }}
+            sizes="100vw"
+          />
+        )}
         <div className={styles.heroPattern} />
         <div className={styles.heroGradient} />
         <div className={styles.heroContent}>
@@ -162,8 +169,12 @@ export default async function BlogPostPage({ params }) {
             <div className={styles.relatedGrid}>
               {related.map((r) => (
                 <Link key={r.slug} href={`/blog/${r.slug}`} className={styles.relatedCard}>
-                  <div className={styles.relatedImg} style={{ background: `linear-gradient(135deg,${r.categoryColor}18,${r.categoryColor}32)` }}>
-                    <span>📄</span>
+                  <div className={styles.relatedImg} style={!r.image ? { background: `linear-gradient(135deg,${r.categoryColor}18,${r.categoryColor}32)` } : undefined}>
+                    {r.image ? (
+                      <Image src={r.image} alt={r.title} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 33vw" />
+                    ) : (
+                      <span>📄</span>
+                    )}
                   </div>
                   <div className={styles.relatedBody}>
                     <span className={styles.relatedCat} style={{ color: r.categoryColor }}>{r.category}</span>

@@ -1,8 +1,10 @@
-import { blogPosts } from "@/data/blogPosts";
+import { getAllPublishedBlogs } from "@/lib/blogData";
 import { Clock, ArrowRight, Tag } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./BlogListing.module.css";
 
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Blog | Venner Infotech — IT Insights & Digital Strategies",
@@ -16,7 +18,8 @@ export const metadata = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await getAllPublishedBlogs();
   const featured = blogPosts.find((p) => p.featured);
   const rest = blogPosts.filter((p) => !p.featured);
 
@@ -38,7 +41,7 @@ export default function BlogPage() {
             from the Venner Infotech team.
           </p>
           <div className={styles.heroStats}>
-            <div className={styles.heroStat}><strong>6+</strong><span>Articles</span></div>
+            <div className={styles.heroStat}><strong>{blogPosts.length}+</strong><span>Articles</span></div>
             <div className={styles.heroStatDivider} />
             <div className={styles.heroStat}><strong>4</strong><span>Categories</span></div>
             <div className={styles.heroStatDivider} />
@@ -56,9 +59,19 @@ export default function BlogPage() {
             <Link href={`/blog/${featured.slug}`} className={styles.featuredCard}>
               <div
                 className={styles.featuredImg}
-                style={{ background: `linear-gradient(135deg,${featured.categoryColor}20,${featured.categoryColor}40)` }}
+                style={!featured.image ? { background: `linear-gradient(135deg,${featured.categoryColor}20,${featured.categoryColor}40)` } : undefined}
               >
-                <span className={styles.featuredImgIcon}>📝</span>
+                {featured.image ? (
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width:768px) 100vw, 50vw"
+                  />
+                ) : (
+                  <span className={styles.featuredImgIcon}>📝</span>
+                )}
               </div>
               <div className={styles.featuredBody}>
                 <div className={styles.featuredTopRow}>
@@ -91,42 +104,57 @@ export default function BlogPage() {
             <div className={styles.sectionLine} />
           </div>
 
-          {/* Grid */}
-          <div className={styles.grid}>
-            {rest.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
-                <div
-                  className={styles.cardImg}
-                  style={{ background: `linear-gradient(135deg,${post.categoryColor}15,${post.categoryColor}30)` }}
-                >
-                  <span className={styles.cardImgIcon}>📄</span>
-                  <span
-                    className={styles.catPill}
-                    style={{ color: post.categoryColor, background: `${post.categoryColor}15`, borderColor: `${post.categoryColor}30` }}
+          {rest.length === 0 && blogPosts.length === 0 ? (
+            <p style={{ color: "#666", textAlign: "center", padding: "40px 0" }}>
+              No articles published yet. Check back soon!
+            </p>
+          ) : (
+            <div className={styles.grid}>
+              {rest.map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
+                  <div
+                    className={styles.cardImg}
+                    style={!post.image ? { background: `linear-gradient(135deg,${post.categoryColor}15,${post.categoryColor}30)` } : undefined}
                   >
-                    {post.category}
-                  </span>
-                </div>
-                <div className={styles.cardBody}>
-                  <h3 className={styles.cardTitle}>{post.title}</h3>
-                  <p className={styles.cardExcerpt}>{post.excerpt}</p>
-                  <div className={styles.cardMeta}>
-                    <Clock size={12} />
-                    <span>{post.readTime}</span>
-                    <span className={styles.metaDot}>·</span>
-                    <span>{post.date}</span>
+                    {post.image ? (
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width:768px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <span className={styles.cardImgIcon}>📄</span>
+                    )}
+                    <span
+                      className={styles.catPill}
+                      style={{ color: post.categoryColor, background: `${post.categoryColor}15`, borderColor: `${post.categoryColor}30`, position: "relative", zIndex: 2 }}
+                    >
+                      {post.category}
+                    </span>
                   </div>
-                  <div className={styles.cardTags}>
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className={styles.tag}>
-                        <Tag size={10} /> {tag}
-                      </span>
-                    ))}
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{post.title}</h3>
+                    <p className={styles.cardExcerpt}>{post.excerpt}</p>
+                    <div className={styles.cardMeta}>
+                      <Clock size={12} />
+                      <span>{post.readTime}</span>
+                      <span className={styles.metaDot}>·</span>
+                      <span>{post.date}</span>
+                    </div>
+                    <div className={styles.cardTags}>
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className={styles.tag}>
+                          <Tag size={10} /> {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
