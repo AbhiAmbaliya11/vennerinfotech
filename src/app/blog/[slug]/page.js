@@ -16,6 +16,9 @@ export async function generateMetadata({ params }) {
     title: `${post.title} | Venner Infotech Blog`,
     description: post.excerpt,
     keywords: post.tags,
+    alternates: {
+      canonical: `https://vennerinfotech.com/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,

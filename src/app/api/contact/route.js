@@ -2,7 +2,21 @@ import nodemailer from "nodemailer";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
 function buildHtmlEmail({ name, email, phone, subject, message }) {
+  name = escapeHtml(name);
+  email = escapeHtml(email);
+  phone = escapeHtml(phone);
+  subject = escapeHtml(subject);
+  message = escapeHtml(message);
   const now = new Date().toLocaleString("en-IN", {
     timeZone: "Asia/Kolkata",
     dateStyle: "full",

@@ -10,6 +10,9 @@ export const metadata = {
   title: "Blog | Venner Infotech — IT Insights & Digital Strategies",
   description: "Expert articles on Shopify development, WordPress, Laravel, digital marketing, and SEO from the Venner Infotech team.",
   keywords: ["IT blog", "Shopify tips", "WordPress guide", "Laravel development", "digital marketing India"],
+  alternates: {
+    canonical: "https://vennerinfotech.com/blog",
+  },
   openGraph: {
     title: "Blog | Venner Infotech",
     description: "Expert articles on Shopify, WordPress, Laravel & digital marketing.",
