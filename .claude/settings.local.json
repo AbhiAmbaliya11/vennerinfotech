@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(npm run *)",
-      "Bash(Remove-Item \"f:/Abhishek/Venner Website/src/middleware.js\")"
+      "Bash(Remove-Item \"f:/Abhishek/Venner Website/src/middleware.js\")",
+      "Bash(Get-ChildItem -Path \"f:\\\\Abhishek\\\\Venner Website\" -Recurse -Force)",
+      "Bash(Select-Object -First 50)",
+      "Bash(Format-Table FullName, PSIsContainer)"
     ]
   }
 }

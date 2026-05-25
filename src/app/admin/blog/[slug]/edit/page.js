@@ -1,30 +1,24 @@
-import Link from "next/link";
 import { getBlogBySlugAdmin } from "@/lib/blogData";
 import { notFound } from "next/navigation";
+import AdminHeader from "@/components/admin/AdminHeader";
 import BlogForm from "@/components/admin/BlogForm";
-import styles from "../../AdminBlog.module.css";
+import Link from "next/link";
 
 export default async function EditBlogPage({ params }) {
   const { slug } = await params;
   const post = await getBlogBySlugAdmin(slug);
   if (!post) notFound();
 
+  const editActions = (
+    <Link href={`/blog/${slug}`} target="_blank"
+      style={{ padding: "7px 13px", border: "1px solid #2a2a2a", borderRadius: 8, fontSize: 12, color: "#888", textDecoration: "none" }}>
+      View Live ↗
+    </Link>
+  );
+
   return (
     <div style={{ minHeight: "100vh", background: "#0a0a0a", color: "#e0e0e0" }}>
-      <header className={styles.header}>
-        <div className={styles.headerLeft}>
-          <span className={styles.logoText}>VENNER</span>
-          <span className={styles.slash}>/</span>
-          <Link href="/admin/blog" style={{ color: "#aaa", fontSize: 14, textDecoration: "none" }}>Blog Admin</Link>
-          <span className={styles.slash}>/</span>
-          <span className={styles.section}>Edit Post</span>
-        </div>
-        <div className={styles.headerRight}>
-          <Link href={`/blog/${slug}`} target="_blank" className={styles.seedBtn} style={{ textDecoration: "none" }}>
-            View Live
-          </Link>
-        </div>
-      </header>
+      <AdminHeader title="Edit Post" actions={editActions} />
       <BlogForm initialData={post} editSlug={slug} />
     </div>
   );

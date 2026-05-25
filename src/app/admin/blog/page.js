@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import AdminHeader from "@/components/admin/AdminHeader";
 import styles from "./AdminBlog.module.css";
 
 export default function AdminBlogPage() {
@@ -65,11 +66,6 @@ export default function AdminBlogPage() {
     }
   }
 
-  async function handleLogout() {
-    await fetch("/api/admin/logout", { method: "POST" });
-    router.replace("/admin/login");
-  }
-
   const categoryColors = {
     "E-Commerce": "#96bf48",
     "Development": "#f05340",
@@ -77,22 +73,18 @@ export default function AdminBlogPage() {
     "Digital Marketing": "#ec4899",
   };
 
+  const blogActions = (
+    <>
+      <button onClick={handleSeed} className={styles.seedBtn} disabled={seeding}>
+        {seeding ? "Seeding…" : "Seed Existing Posts"}
+      </button>
+      <Link href="/admin/blog/new" className={styles.newBtn}>+ New Post</Link>
+    </>
+  );
+
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.headerLeft}>
-          <span className={styles.logoText}>VENNER</span>
-          <span className={styles.slash}>/</span>
-          <span className={styles.section}>Blog Admin</span>
-        </div>
-        <div className={styles.headerRight}>
-          <button onClick={handleSeed} className={styles.seedBtn} disabled={seeding}>
-            {seeding ? "Seeding…" : "Seed Existing Posts"}
-          </button>
-          <Link href="/admin/blog/new" className={styles.newBtn}>+ New Post</Link>
-          <button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
-        </div>
-      </header>
+      <AdminHeader title="Blog" actions={blogActions} />
 
       <main className={styles.main}>
         {msg && (
